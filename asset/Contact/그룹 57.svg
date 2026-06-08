@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="850.5" viewBox="0 0 1340 850.5">
+  <g id="그룹_57" data-name="그룹 57" transform="translate(-500 -1045)">
+    <text id="_Company_Name" data-name="+  Company Name" transform="translate(500 1067)" font-size="22" font-family="SUITE-Bold, SUITE" font-weight="700" letter-spacing="-0.005em"><tspan x="0" y="0" xml:space="preserve">+  COMPANY NAME</tspan></text>
+    <text id="_Address" data-name="+  Address" transform="translate(500 1225)" font-size="22" font-family="SUITE-Bold, SUITE" font-weight="700" letter-spacing="-0.005em"><tspan x="0" y="0" xml:space="preserve">+  ADDRESS</tspan></text>
+    <text id="_E-Mail" data-name="+  E-Mail" transform="translate(500 1541)" font-size="22" font-family="SUITE-Bold, SUITE" font-weight="700" letter-spacing="-0.005em"><tspan x="0" y="0" xml:space="preserve">+  E-MAIL</tspan></text>
+    <text id="_Contact_address" data-name="+  Contact address" transform="translate(500 1383)" font-size="22" font-family="SUITE-Bold, SUITE" font-weight="700" letter-spacing="-0.005em"><tspan x="0" y="0" xml:space="preserve">+  CONTACT ADDRESS</tspan></text>
+    <text id="_Contents" data-name="+  Contents" transform="translate(500 1699)" font-size="22" font-family="SUITE-Bold, SUITE" font-weight="700" letter-spacing="-0.005em"><tspan x="0" y="0" xml:space="preserve">+  CONTENTS</tspan></text>
+    <g id="그룹_80" data-name="그룹 80" transform="translate(0 -3)">
+      <rect id="사각형_38" data-name="사각형 38" width="1340" height="60" transform="translate(500 1086)" fill="none"/>
+      <path id="패스_49" data-name="패스 49" d="M0,0H1340" transform="translate(500 1146)" fill="none" stroke="#000" stroke-width="1"/>
+      <text id="업체명을_입력해_주세요" data-name="업체명을 입력해 주세요" transform="translate(540 1123)" fill="#b3b3b3" font-size="18" font-family="SUITE-Light, SUITE" font-weight="300" letter-spacing="-0.01em"><tspan x="0" y="0">업체명을 입력해 주세요</tspan></text>
+    </g>
+    <g id="그룹_81" data-name="그룹 81" transform="translate(0 -18)">
+      <rect id="사각형_39" data-name="사각형 39" width="1340" height="60" transform="translate(500 1259)" fill="none"/>
+      <line id="선_7" data-name="선 7" x2="1340" transform="translate(500 1319)" fill="none" stroke="#000" stroke-width="1"/>
+      <text id="주소를_입력해_주세요" data-name="주소를 입력해 주세요" transform="translate(540 1296)" fill="#b3b3b3" font-size="18" font-family="SUITE-Light, SUITE" font-weight="300" letter-spacing="-0.01em"><tspan x="0" y="0">주소를 입력해 주세요</tspan></text>
+    </g>
+    <g id="그룹_84" data-name="그룹 84" transform="translate(0 -48)">
+      <rect id="사각형_41" data-name="사각형 41" width="1340" height="60" transform="translate(500 1605)" fill="none"/>
+      <line id="선_9" data-name="선 9" x2="1340" transform="translate(500 1665)" fill="none" stroke="#000" stroke-width="1"/>
+      <text id="이메일을_입력해_주세요" data-name="이메일을 입력해 주세요" transform="translate(540 1642)" fill="#b3b3b3" font-size="18" font-family="SUITE-Light, SUITE" font-weight="300" letter-spacing="-0.01em"><tspan x="0" y="0">이메일을 입력해 주세요</tspan></text>
+    </g>
+    <g id="그룹_83" data-name="그룹 83" transform="translate(0 -33)">
+      <rect id="사각형_40" data-name="사각형 40" width="1340" height="60" transform="translate(500 1432)" fill="none"/>
+      <line id="선_8" data-name="선 8" x2="1340" transform="translate(500 1492)" fill="none" stroke="#000" stroke-width="1"/>
+      <text id="연락처를_입력해_주세요" data-name="연락처를 입력해 주세요" transform="translate(540 1469)" fill="#b3b3b3" font-size="18" font-family="SUITE-Light, SUITE" font-weight="300" letter-spacing="-0.01em"><tspan x="0" y="0">연락처를 입력해 주세요</tspan></text>
+    </g>
+    <g id="그룹_82" data-name="그룹 82" transform="translate(0 -63)">
+      <rect id="사각형_42" data-name="사각형 42" width="1340" height="180" transform="translate(500 1778)" fill="none"/>
+      <line id="선_10" data-name="선 10" x2="1340" transform="translate(500 1958)" fill="none" stroke="#000" stroke-width="1"/>
+      <text id="내용을_입력해_주세요" data-name="내용을 입력해 주세요" transform="translate(540 1815)" fill="#b3b3b3" font-size="18" font-family="SUITE-Light, SUITE" font-weight="300" letter-spacing="-0.01em"><tspan x="0" y="0">내용을 입력해 주세요</tspan></text>
+      <path id="패스_48" data-name="패스 48" d="M11471.056,1934.62h40v-40Z" transform="translate(-9671.056 13.38)" fill="#b3b3b3" opacity="0.5"/>
+    </g>
+  </g>
+</svg>

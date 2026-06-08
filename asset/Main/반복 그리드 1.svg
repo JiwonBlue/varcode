@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2013" height="80" viewBox="0 0 2013 80">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="2013" height="80" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="반복_그리드_1" data-name="반복 그리드 1" clip-path="url(#clip-path)">
+    <g transform="translate(0 -3910)">
+      <rect id="사각형_21" data-name="사각형 21" width="380" height="80" transform="translate(0 3910)" fill="#ddd"/>
+    </g>
+    <g transform="translate(400 -3910)">
+      <rect id="사각형_21-2" data-name="사각형 21" width="380" height="80" transform="translate(0 3910)" fill="#ddd"/>
+    </g>
+    <g transform="translate(800 -3910)">
+      <rect id="사각형_21-3" data-name="사각형 21" width="380" height="80" transform="translate(0 3910)" fill="#ddd"/>
+    </g>
+    <g transform="translate(1200 -3910)">
+      <rect id="사각형_21-4" data-name="사각형 21" width="380" height="80" transform="translate(0 3910)" fill="#ddd"/>
+    </g>
+    <g transform="translate(1600 -3910)">
+      <rect id="사각형_21-5" data-name="사각형 21" width="380" height="80" transform="translate(0 3910)" fill="#ddd"/>
+    </g>
+    <g transform="translate(2000 -3910)">
+      <rect id="사각형_21-6" data-name="사각형 21" width="380" height="80" transform="translate(0 3910)" fill="#ddd"/>
+    </g>
+  </g>
+</svg>

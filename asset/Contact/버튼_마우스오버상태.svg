@@ -1,0 +1,7 @@
+<svg id="버튼_마우스오버상태" xmlns="http://www.w3.org/2000/svg" width="1340" height="80" viewBox="0 0 1340 80">
+  <g id="사각형_43" data-name="사각형 43" fill="#fff" stroke="#000" stroke-width="1">
+    <rect width="1340" height="80" stroke="none"/>
+    <rect x="0.5" y="0.5" width="1339" height="79" fill="none"/>
+  </g>
+  <text id="Send_" data-name="Send  &gt;" transform="translate(670 48)" font-size="22" font-family="SUITE-Bold, SUITE" font-weight="700" letter-spacing="-0.005em"><tspan x="-42" y="0" xml:space="preserve">SEND  &gt;</tspan></text>
+</svg>

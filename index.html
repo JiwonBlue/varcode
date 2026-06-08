@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VARCODE. - MAIN</title>
+    <link rel="stylesheet" href="./css/VARCODE_style.css">
+    <link href="https://cdn.jsdelivr.net/gh/sunnpoet/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+/* --- [헤더 레이아웃 캡처본 버전으로 복원] 로고 바로 옆에 메뉴 배치 --- */
+        #VARCODE_header {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--vc-bg-light);
+            
+            /* 정중앙 정렬을 풀고 좌우로 넓게 벌려주는 원래 flex 구조로 롤백 */
+            display: flex !important;
+            justify-content: space-between !important; 
+            align-items: center !important;
+            padding: 0 50px !important;
+            z-index: 99999 !important; 
+        }
+
+/* 로고와 메뉴 사이의 간격을 늘려 메뉴를 오른쪽으로 더 밀어줍니다 */
+        #VARCODE_header .logo {
+            margin-right: 180px; /* ★ 기존 80px에서 180px로 변경 (취향에 따라 150px~200px 사이로 조절해보세요!) */
+            flex-shrink: 0;
+        }
+
+        #VARCODE_header .nav_menu {
+            display: flex !important;
+            gap: 50px !important;
+            position: static !important; /* absolute 중앙 정렬 강제 해제 */
+            transform: none !important;  /* 중앙 정렬 좌표 연산 초기화 */
+            flex: 1; /* 남은 공간을 채워 SNS 아이콘을 우측 끝으로 밀어냅니다 */
+        }
+        #VARCODE_header .nav_menu a {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--vc-black);
+        }
+
+        /* --- [레이아웃 간섭 분리 수술] --- */
+        .main_full_contents {
+            margin-left: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+        
+        .visual_full_width {
+            width: 100% !important;
+            height: calc(100vh - 90px) !important; 
+            margin-top: 90px !important; /* 헤더 밑으로 밀어서 링크 레이어 풀림 차단 */
+            margin-bottom: 120px !important;
+        }
+
+        .main_content_inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px 120px 50px;
+        }
+
+        .title_black_bar {
+            width: 50px;
+            height: 3px;
+            background-color: #000000;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+
+        /* --- ★ [아베크 스타일 스와이퍼 커스텀 UI] --- */
+        .portfolio-container-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .swiper-portfolio {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        
+        /* 화살표 버튼 커스텀 (아베크 스타일의 얇고 모던한 라인형 < > 배치) */
+        .swiper-button-next, .swiper-button-prev {
+            color: #000000 !important;
+            width: 50px !important;
+            height: 50px !important;
+            transition: all 0.3s ease;
+        }
+        /* 기본 투박한 화살표 뼈대를 제거하고 세련된 크기로 교정 */
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 20px !important;
+            font-weight: 300 !important;
+        }
+        /* 마우스 오버 반응 효과 */
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            opacity: 0.6;
+        }
+        /* 화살표가 본문을 찌르지 않게 여백 정돈 */
+        .swiper-button-prev { left: -60px !important; }
+        .swiper-button-next { right: -60px !important; }
+
+        /* [로딩 최적화형 CLIENT 롤링 시스템] */
+        .client_marquee_wrap {
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            padding: 20px 0;
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+        .client_inner {
+            display: flex;
+            white-space: nowrap;
+            animation: client_rolling 30s linear infinite;
+        }
+        .client_box {
+            width: 180px;
+            height: 65px;
+            background-color: var(--vc-bg-light);
+            border-radius: 2px;
+            margin-right: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--vc-gray-dark);
+        }
+        @keyframes client_rolling {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+<header id="VARCODE_header">
+    <div class="logo"><a href="./index.html">VARCODE.</a></div>
+    <nav class="nav_menu">
+        <a href="./varcode/about.html">ABOUT</a>
+        <a href="./varcode/portfolio.html">PORTFOLIO</a>
+        <a href="./varcode/contact.html">CONTACT</a>
+    </nav>
+    <!-- 헤더 내부의 가장 오른쪽 영역입니다 -->
+    <div class="sns_links">
+        <!-- 1. 네이버 블로그 아이콘 -->
+        <a href="#" target="_blank" aria-label="Naver Blog">
+            <svg viewBox="0 0 24 24" style="width:22px; height:22px; fill:#2A362C;"><path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm2.5 5v10h3.125V12h.062l3.313 5H17.5V7h-3.125v5h-.063L11 7H6.5z"/></svg>
+        </a>
+        <!-- 2. 인스타그램 아이콘 (복구 완료!) -->
+        <a href="#" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" style="width:22px; height:22px; fill:#2A362C;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+    </div>
+</header>
+
+<div id="VARCODE_wrap">
+    <div class="VARCODE_layout" style="padding-top: 0;">
+        <main class="VARCODE_contents main_full_contents">
+            
+            <section id="main_visual" class="visual_full_width" style="background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1920&q=85') no-repeat center/cover; position: relative;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #FFFFFF; width: 100%;">
+                    <h2 style="font-size: 42px; font-weight: bold; line-height: 1.5; letter-spacing: -0.5px;">시각적으로 기획 · 제작 · 설치하는<br>의료공간의 첫 인상</h2>
+                </div>
+            </section>
+
+            <div class="main_content_inner">
+
+                <!-- 섹션 2: INDOOR / OUTDOOR (캡처본 세로 적층형 구조로 수정) -->
+                <section class="about_section" style="display: flex; flex-direction: column; gap: 80px; margin-bottom: 140px;">
+                    
+                    <!-- 상단: INDOOR 세트 -->
+                    <div style="border-bottom: 1px solid var(--vc-bg-light); padding-bottom: 40px;">
+                        <h3 class="vc-style-3" style="color: var(--vc-dark); margin-bottom: 25px; font-size: 22px; letter-spacing: 1px;">INDOOR</h3>
+                        <p class="vc-style-1" style="color: var(--vc-gray-dark); font-size: 16px; line-height: 1.8;">
+                            사람 중심의 가장 편안하고 효율적인 동선<br>
+                            공간의 목적에 맞는 조도와 톤앤매너를 설정<br>
+                            공간의 가치를 올려주는 프리미엄 자재 선정
+                        </p>
+                    </div>
+                    
+                    <!-- 하단: OUTDOOR 세트 -->
+                    <div style="padding-bottom: 20px;">
+                        <h3 class="vc-style-3" style="color: var(--vc-dark); margin-bottom: 25px; font-size: 22px; letter-spacing: 1px;">OUTDOOR</h3>
+                        <p class="vc-style-1" style="color: var(--vc-gray-dark); font-size: 16px; line-height: 1.8;">
+                            날씨와 세월의 흔적 앞에서도 변치 않는 내구성<br>
+                            주변 환경과 어울리면서도 독창적인 정체성<br>
+                            완벽한 안전 진단을 바탕으로 한 외관 디자인
+                        </p>
+                    </div>
+
+                </section>
+
+                <section class="about_section" style="margin-top: 120px; margin-bottom: 140px;">
+                    <h3 class="vc-style-3" style="font-size: 16px; font-weight: bold; letter-spacing: 0.5px;">PORTFOLIO IMAGE</h3>
+                    <div class="title_black_bar"></div>
+                    
+                    <div class="portfolio-container-wrapper">
+                        <div class="swiper swiper-portfolio">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide portfolio_item">
+                                    <div style="width:100%; aspect-ratio:4/3; background-color:#2a362c;"></div>
+                                    <div class="portfolio_info"><div class="pf_title">365산본플란트치과</div></div>
+                                </div>
+                                <div class="swiper-slide portfolio_item">
+                                    <div style="width:100%; aspect-ratio:4/3; background-color:#1b543a;"></div>
+                                    <div class="portfolio_info"><div class="pf_title">다움치과</div></div>
+                                </div>
+                                <div class="swiper-slide portfolio_item">
+                                    <div style="width:100%; aspect-ratio:4/3; background-color:#838383;"></div>
+                                    <div class="portfolio_info"><div class="pf_title">목동공감한의원</div></div>
+                                </div>
+                                <div class="swiper-slide portfolio_item">
+                                    <div style="width:100%; aspect-ratio:4/3; background-color:#b3b3b3;"></div>
+                                    <div class="portfolio_info"><div class="pf_title">의정부웰365의원</div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </section>
+
+                <section class="about_section" style="margin-top: 100px; margin-bottom: 140px;">
+                    <h3 class="vc-style-3" style="font-size: 16px; font-weight: bold; letter-spacing: 0.5px;">OUR CLIENT</h3>
+                    <div class="title_black_bar"></div>
+                    
+                    <div class="client_marquee_wrap">
+                        <div class="client_inner">
+                            <div class="client_box">산본플란트치과</div>
+                            <div class="client_box">다움치과의원</div>
+                            <div class="client_box">목동공감한의원</div>
+                            <div class="client_box">의정부웰의원</div>
+                            <div class="client_box">서울정형외과</div>
+                            <div class="client_box">삼성내과의원</div>
+                            <div class="client_box">산본플란트치과</div>
+                            <div class="client_box">다움치과의원</div>
+                            <div class="client_box">목동공감한의원</div>
+                            <div class="client_box">의정부웰의원</div>
+                            <div class="client_box">서울정형외과</div>
+                            <div class="client_box">삼성내과의원</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section style="margin-top: 160px; border-top: 3px solid #000000; padding-top: 40px; margin-bottom: 20px;">
+                    <h3 class="vc-style-3" style="font-size: 15px; font-weight: bold; margin-bottom: 40px; letter-spacing: 0.5px;">CONTACT</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid var(--vc-bg-light); padding-top: 30px;">
+                        <div>
+                            <h4 class="vc-style-2" style="font-size: 14px; color: var(--vc-gray-dark); margin-bottom: 15px; text-transform: uppercase;">Inquiries</h4>
+                            <p class="vc-style-1" style="font-size: 15px; font-weight: bold;">VARCODE00@naver.com</p>
+                            <p class="vc-style-1" style="font-size: 15px; font-weight: bold; margin-top: 5px;">010-4738-8278</p>
+                        </div>
+                        <div>
+                            <h4 class="vc-style-2" style="font-size: 14px; color: var(--vc-gray-dark); margin-bottom: 15px; text-transform: uppercase;">Location</h4>
+                            <p class="vc-style-1" style="font-size: 14px; line-height: 1.5; color: #000000;">33-16, Deumbak-ro, Yangchon-eup,<br>Gimpo-si, Gyeonggi-do</p>
+                        </div>
+                        <div>
+                            <h4 class="vc-style-2" style="font-size: 14px; color: var(--vc-gray-dark); margin-bottom: 15px; text-transform: uppercase;">Follow</h4>
+                            <p class="vc-style-1" style="font-size: 15px; font-weight: bold;"><a href="#" style="border-bottom: 1px solid #000000;">BLOG</a></p>
+                            <p class="vc-style-1" style="font-size: 15px; font-weight: bold; margin-top: 8px;"><a href="#" style="border-bottom: 1px solid #000000;">INSTAGRAM</a></p>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+    </div>
+</div>
+
+<footer id="VARCODE_footer">
+    <div class="footer_inner">
+        <div class="footer_info_list vc-style-1">
+            <span class="info_item">사업자등록번호 : 384-86-0****</span>
+            <span class="info_item">바코드 유한회사 대표이사 : 성현호/김대현/김원중</span>
+            <span class="info_item">TEL : 010-4738-8278</span>
+        </div>
+        <div class="footer_copyright">
+            Copyright &copy; 2026 VARCODE. | Powered by VARCODE
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper-portfolio', {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        autoplay: {
+            delay: 3000, 
+            disableOnInteraction: false,
+        },
+        grabCursor: true, 
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            320: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        }
+    });
+</script>
+
+</body>
+</html>
