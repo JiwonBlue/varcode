@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VARCODE. - ABOUT</title>
     <link rel="stylesheet" href="../css/VARCODE_style.css">
-    <link href="https://cdn.jsdelivr.net/gh/sunnpoet/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
+    
+    <!-- 웹폰트 비동기 로드 처리 (블로킹 방지) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunnpoet/SUITE/fonts/static/woff2/SUITE.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
@@ -20,10 +22,10 @@
     </nav>
     <div class="sns_links">
         <a href="#" target="_blank" aria-label="Naver Blog">
-            <svg viewBox="0 0 24 24" style="width:22px; height:22px; fill:#2A362C;"><path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm2.5 5v10h3.125V12h.062l3.313 5H17.5V7h-3.125v5h-.063L11 7H6.5z"/></svg>
+            <img src="../img/그룹 17.svg" alt="Naver Blog" style="width:22px; height:22px; vertical-align:middle;">
         </a>
         <a href="#" target="_blank" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" style="width:22px; height:22px; fill:#2A362C;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            <img src="../img/그룹 14.svg" alt="Instagram" style="width:22px; height:22px; vertical-align:middle;">
         </a>
     </div>
 </header>
@@ -48,7 +50,7 @@
                         <p>건물 규정 & 허가 기준에 맞춘 실측 기반 설계가 강점이며,<br>디자인·제작·시공을 모두 직접 컨트롤하여<br>일정 차질을 최소화합니다.</p>
                     </div>
                     <div class="visual_img">
-                        <div style="background:#1B543A; color:#fff; padding:40px 20px; font-weight:bold; text-align:center; border-radius:4px;">VARCODE.</div>
+                        <img src="../img/제목-없음-2.png" alt="VARCODE" style="width:100%; height:auto; display:block; border-radius:4px;">
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
@@ -56,17 +58,15 @@
                 </div>
             </section>
 
-            <section class="about_section" style="margin-bottom:80px;">
+            <!-- 무한 롤링 텍스트 영역 (하드웨어 가속 최적화) -->
+            <section class="about_section" style="margin-bottom:80px; contain: layout paint;">
                 <div class="text_marquee_wrap">
-                    
-                    <div class="marquee_inner">
+                    <div class="marquee_inner" style="will-change: transform;">
                         <span>정형외과</span><span>재활의학과</span><span>마취통증의학과</span><span>신경외과</span><span>신경과</span><span>내과</span><span>안과</span><span>피부과</span><span>성형외과</span><span>비뇨의학과</span><span>외과</span><span>항문외과</span><span>한의원</span><span>이비인후과</span><span>치과</span><span>영상의학과</span><span>소아청소년과</span><span>가정의학과</span>
                     </div>
-                    
-                    <div class="marquee_inner" aria-hidden="true">
+                    <div class="marquee_inner" aria-hidden="true" style="will-change: transform;">
                         <span>정형외과</span><span>재활의학과</span><span>마취통증의학과</span><span>신경외과</span><span>신경과</span><span>내과</span><span>안과</span><span>피부과</span><span>성형외과</span><span>비뇨의학과</span><span>외과</span><span>항문외과</span><span>한의원</span><span>이비인후과</span><span>치과</span><span>영상의학과</span><span>소아청소년과</span><span>가정의학과</span>
                     </div>
-
                 </div>
             </section>
 
@@ -146,7 +146,6 @@
             <span class="info_item">사업자등록번호 : 384-86-0****</span>
             <span class="info_item">바코드 유한회사 대표이사 : 성현호/김대현/김원중</span>
             <span class="info_item">TEL : 010-4738-8278</span>
-            <span class="info_item">개인정보 보호책임자 : 홍길동</span>
         </div>
         <div class="footer_copyright">
             Copyright &copy; 2026 VARCODE. | Powered by VARCODE

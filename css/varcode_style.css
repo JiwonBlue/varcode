@@ -35,7 +35,7 @@ img {
     display: block;
 }
 
-/* 폰트 스타일 시스템 구현 (전달주신 가이드 기준) */
+/* 폰트 스타일 시스템 구현 */
 .vc-style-1 {
     font-family: var(--vc-font-suite);
     font-weight: normal;
@@ -64,36 +64,34 @@ img {
     text-transform: uppercase;
 }
 
-/* 레이아웃 구조 */
+/* 레이아웃 구조 (오타 수정: VARCODE -> VARCODE) */
 #VARCODE_wrap {
     width: 100%;
     position: relative;
 }
 
 /* ==========================================
-   상단 네비게이션 헤더 (전체 페이지 공통 적용 최종본)
+   상단 네비게이션 헤더 (메인/서브 완벽 동기화)
    ========================================== */
 #VARCODE_header {
-    position: fixed !important;
+    position: relative !important;
     top: 0;
     left: 0;
     width: 100%;
     height: 90px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid var(--vc-bg-light);
-    
-    /* 좌우로 넓게 벌려주는 flex 구조 적용 */
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid var(--vc-bg-light) !important;
     display: flex !important;
-    justify-content: space-between !important; 
+    justify-content: space-between !important;
     align-items: center !important;
     padding: 0 50px !important;
-    z-index: 99999 !important; 
+    z-index: 99999 !important;
     box-sizing: border-box;
 }
 
-/* 로고 영역 스타일 및 메뉴와의 완벽한 간격(여백) 확보 */
+/* 로고 영역 */
 #VARCODE_header .logo {
-    margin-right: 180px; /* ★ 메인처럼 로고와 메뉴 사이의 넉넉한 공간을 확보하여 메뉴를 오른쪽으로 밀어줍니다 */
+    margin-right: 180px; 
     flex-shrink: 0;
 }
 #VARCODE_header .logo a {
@@ -103,13 +101,13 @@ img {
     color: var(--vc-dark);
 }
 
-/* 메뉴 링크들을 로고 옆 좌측 라인에 밀착 정렬 */
+/* 메뉴 링크 정렬 */
 #VARCODE_header .nav_menu {
     display: flex !important;
     gap: 50px !important;
-    position: static !important; /* 이전의 꼬였던 중앙 정렬 속성들 완전 초기화 */
+    position: static !important; 
     transform: none !important;
-    flex: 1; /* 남은 공간을 혼자 다 채워서 SNS 아이콘을 화면 맨 오른쪽 끝으로 밀어내는 역할 */
+    flex: 1; 
 }
 #VARCODE_header .nav_menu a {
     font-size: 15px;
@@ -123,7 +121,7 @@ img {
     color: var(--vc-primary);
 }
 
-/* 우측 끝 SNS 아이콘 영역 정렬 */
+/* 우측 끝 SNS 아이콘 영역 */
 #VARCODE_header .sns_links {
     display: flex !important;
     gap: 15px !important;
@@ -138,8 +136,8 @@ img {
 /* 스플릿 사이드바 프레임 바디 */
 .VARCODE_layout {
     display: flex;
-    padding-top: 90px;
-    min-height: 100vh;
+    padding-top: 0; /* ★ relative 헤더이므로 padding-top을 0으로 만들어 메인/서브 상단 여백을 일치시킵니다 */
+    min-height: calc(100vh - 90px);
 }
 
 /* 좌측 고정 슬로건 사이드바 */
@@ -168,7 +166,7 @@ img {
     color: var(--vc-gray-dark);
 }
 
-/* 우측 가변 컨텐츠 영역 기본 세팅 (메인 페이지 베이스) */
+/* 우측 가변 컨텐츠 영역 기본 세팅 */
 .VARCODE_contents {
     margin-left: 0;
     flex: 1;
@@ -190,7 +188,7 @@ img {
     padding: 0 !important;      
 }
 
-/* --- 컴포넌트 세부 디자인 --- */
+/* --- 컴포넌트 세부 디자인 (기존 내용 유지) --- */
 .about_section { margin-bottom: 120px; }
 .section_title {
     font-size: 14px;
@@ -387,21 +385,171 @@ img {
     margin-top: 10px;
 }
 
-/* 반응형 스마트폰/태블릿 처리 */
+/* ==========================================
+   [반응형 처리] 태블릿 및 모바일 오타 수정 동기화
+   ========================================== */
+
+/* 1. 태블릿 구간 (화면 너비 1024px 이하) */
 @media (max-width: 1024px) {
-    #VARCODE_header { padding: 0 20px !important; height: 70px !important; width: 100vw !important; }
-    .VARCODE_layout { flex-direction: column; padding-top: 70px; }
-    .VARCODE_sidebar { position: relative; top: 0; left: 0; width: 100%; padding: 40px 20px; bottom: auto; }
-    .VARCODE_sidebar .slogan_title { margin-top: 0; font-size: 22px; }
-    .VARCODE_sidebar .info_footer { display: none; } 
-    .VARCODE_contents.sub_contents { margin-left: 0; max-width: 100%; padding: 20px; }
+    #VARCODE_header { 
+        padding: 0 20px !important; 
+        height: 70px !important; 
+    }
+    #VARCODE_header .logo {
+        margin-right: 40px; 
+    }
+    #VARCODE_header .nav_menu {
+        gap: 25px !important; 
+    }
+
+    .VARCODE_layout { 
+        flex-direction: column; 
+        padding-top: 0px; 
+    }
     
-    .process_grid, .partnership_grid, .portfolio_grid { grid-template-columns: 1fr; }
-    .contact_info_layout { flex-direction: column; padding: 20px; }
-    .contact_map_placeholder, .contact_meta_info { width: 100%; }
+    .VARCODE_sidebar { 
+        position: relative; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        padding: 40px 20px; 
+        bottom: auto; 
+    }
+    .VARCODE_sidebar .slogan_title { 
+        margin-top: 0; 
+        font-size: 22px; 
+    }
+    .VARCODE_sidebar .info_footer { 
+        display: none; 
+    } 
+
+    .VARCODE_contents.sub_contents { 
+        margin-left: 0; 
+        max-width: 100%; 
+        padding: 40px 20px; 
+    }
+    
+    .process_grid, .partnership_grid, .portfolio_grid { 
+        grid-template-columns: 1fr; 
+    }
+    .main_content_inner {
+        padding: 0 20px 80px 20px;
+    }
+    .contact_info_layout { 
+        flex-direction: column; 
+        padding: 20px; 
+    }
+    .contact_map_placeholder, .contact_meta_info { 
+        width: 100%; 
+    }
 }
 
-@media (max-width: 768px) {
-    #VARCODE_footer { padding: 40px 20px; }
-    .footer_info_list { flex-direction: column; align-items: center; gap: 8px 0; text-align: center; }
+/* ==========================================
+   [반응형 처리] 태블릿 및 모바일 오타 수정 동기화 (최종본)
+   ========================================== */
+
+/* 1. 태블릿 구간 (화면 너비 1024px 이하) */
+@media (max-width: 1024px) {
+    #VARCODE_header { 
+        padding: 0 20px !important; 
+        height: 70px !important; 
+    }
+    #VARCODE_header .logo {
+        margin-right: 40px !important; 
+    }
+    #VARCODE_header .nav_menu {
+        gap: 25px !important; 
+    }
+
+    .VARCODE_layout { 
+        flex-direction: column; 
+        padding-top: 0px; 
+    }
+    
+    .VARCODE_sidebar { 
+        position: relative; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        padding: 40px 20px; 
+        bottom: auto; 
+    }
+    .VARCODE_sidebar .slogan_title { 
+        margin-top: 0; 
+        font-size: 22px; 
+    }
+    .VARCODE_sidebar .info_footer { 
+        display: none; 
+    } 
+
+    .VARCODE_contents.sub_contents { 
+        margin-left: 0; 
+        max-width: 100%; 
+        padding: 40px 20px; 
+    }
+    
+    .process_grid, .partnership_grid, .portfolio_grid { 
+        grid-template-columns: 1fr; 
+    }
+    .main_content_inner {
+        padding: 0 20px 80px 20px;
+    }
+    .contact_info_layout { 
+        flex-direction: column; 
+        padding: 20px; 
+    }
+    .contact_map_placeholder, .contact_meta_info { 
+        width: 100%; 
+    }
 }
+
+/* 2. 스마트폰 구간 (화면 너비 768px 이하) */
+@media (max-width: 768px) {
+    #VARCODE_header {
+        height: 60px !important;
+        padding: 0 15px !important;
+    }
+    
+    /* ★ [동기화 마감] 메인페이지에만 있던 모바일 압축 로직을 공통 파일에도 이식합니다 */
+    #VARCODE_header .logo {
+        margin-right: 25px !important; /* 화면이 작을 때 로고 우측 마진 통일 */
+    }
+    #VARCODE_header .logo a {
+        font-size: 18px !important; 
+    }
+    #VARCODE_header .nav_menu {
+        gap: 15px !important;          /* 메뉴 사이 좁은 간격 통일 */
+        margin-right: 10px !important;
+    }
+    #VARCODE_header .nav_menu a {
+        font-size: 13px !important; 
+    }
+    #VARCODE_header .sns_links {
+        gap: 8px !important;
+    }
+    #VARCODE_header .sns_links a svg,
+    #VARCODE_header .sns_links img {
+        width: 18px !important;
+        height: 18px !important; 
+    }
+
+    .visual_full_width h2 {
+        font-size: 24px !important;
+        padding: 0 20px;
+    }
+
+    .about_section {
+        margin-bottom: 80px !important;
+    }
+
+    #VARCODE_footer { 
+        padding: 40px 20px; 
+    }
+    .footer_info_list { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 8px 0; 
+        text-align: center; 
+    }
+}
+/* ◀ 이전의 꼬였던 이중 중괄호 찌꺼기 완벽하게 제거됨 */

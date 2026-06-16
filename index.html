@@ -5,49 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VARCODE. - MAIN</title>
     <link rel="stylesheet" href="./css/VARCODE_style.css">
-    <link href="https://cdn.jsdelivr.net/gh/sunnpoet/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
 
     <style>
-/* --- [헤더 레이아웃 캡처본 버전으로 복원] 로고 바로 옆에 메뉴 배치 --- */
+        /* --- [헤더 레이아웃 최종 고정] --- */
         #VARCODE_header {
-            position: fixed !important;
+            position: absolute !important;
             top: 0;
             left: 0;
             width: 100%;
             height: 90px;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--vc-bg-light);
-            
-            /* 정중앙 정렬을 풀고 좌우로 넓게 벌려주는 원래 flex 구조로 롤백 */
+            background-color: transparent !important;
+            border-bottom: none !important;
             display: flex !important;
-            justify-content: space-between !important; 
+            justify-content: space-between !important;
             align-items: center !important;
             padding: 0 50px !important;
-            z-index: 99999 !important; 
+            z-index: 99999 !important;
+            box-sizing: border-box;
         }
 
-/* 로고와 메뉴 사이의 간격을 늘려 메뉴를 오른쪽으로 더 밀어줍니다 */
+        /* 로고와 메뉴 사이의 간격을 늘려 시안 특유의 세련된 좌측 정렬 여백 구현 */
         #VARCODE_header .logo {
-            margin-right: 180px; /* ★ 기존 80px에서 180px로 변경 (취향에 따라 150px~200px 사이로 조절해보세요!) */
+            margin-right: 180px; 
             flex-shrink: 0;
+        }
+        
+        /* ★ [교정] 로고 글자색을 흰색으로 변경 */
+        #VARCODE_header .logo a {
+            color: #FFFFFF !important; 
         }
 
         #VARCODE_header .nav_menu {
             display: flex !important;
             gap: 50px !important;
-            position: static !important; /* absolute 중앙 정렬 강제 해제 */
-            transform: none !important;  /* 중앙 정렬 좌표 연산 초기화 */
-            flex: 1; /* 남은 공간을 채워 SNS 아이콘을 우측 끝으로 밀어냅니다 */
+            position: static !important; 
+            transform: none !important;  
+            flex: 1; 
         }
+        
+        /* 기본 메뉴 글자색 (기존 코드 유지) */
         #VARCODE_header .nav_menu a {
             font-size: 15px;
             font-weight: bold;
-            color: var(--vc-black);
+            color: #FFFFFF !important;
+            
+            /* ★ [추가] 마우스를 올리거나 뗄 때 색상이 0.3초 동안 부드럽게 변하도록 애니메이션 효과 부여 */
+            transition: color 0.3s ease !important; 
         }
 
-        /* --- [레이아웃 간섭 분리 수술] --- */
+        /* ★ [새로 추가] 마우스를 갖다 댔을 때(hover) 반응하는 스타일 */
+        #VARCODE_header .nav_menu a:hover {
+            /* 은은하게 반투명해지는 흰색으로 변경 (취향에 따라 #CCCCCC 같은 연그레이로 바꾸셔도 됩니다) */
+            color: rgba(255, 255, 255, 0.6) !important; 
+        }
+        
+        /* ★ [새로 추가] 로고에도 마우스를 올렸을 때 흐려지는 호버 효과를 똑같이 주고 싶다면 함께 넣어주세요 */
+        #VARCODE_header .logo a {
+            transition: opacity 0.3s ease !important;
+        }
+        #VARCODE_header .logo a:hover {
+            opacity: 0.6 !important;
+        }
+
+        /* --- [레이아웃 정돈] --- */
         .main_full_contents {
             margin-left: 0 !important;
             padding: 0 !important;
@@ -56,8 +78,13 @@
         
         .visual_full_width {
             width: 100% !important;
-            height: calc(100vh - 90px) !important; 
-            margin-top: 90px !important; /* 헤더 밑으로 밀어서 링크 레이어 풀림 차단 */
+            height: 100vh !important; /* ★ 화면 높이를 꽉 채우도록 변경 */
+            
+            /* ★ 핵심 포인트: 
+                흰색 헤더 영역 때문에 배너를 아래로 밀어내던 마진(margin-top: 90px)을 '0'으로 지웁니다.
+                이렇게 해야 나무 그림 배너가 모니터 맨 위 천장 끝까지 바짝 달라붙어 헤더 뒷배경을 채우게 됩니다.
+            */
+            margin-top: 0 !important; 
             margin-bottom: 120px !important;
         }
 
@@ -65,6 +92,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 50px 120px 50px;
+            box-sizing: border-box;
         }
 
         .title_black_bar {
@@ -75,7 +103,7 @@
             margin-bottom: 50px;
         }
 
-        /* --- ★ [아베크 스타일 스와이퍼 커스텀 UI] --- */
+        /* --- [아베크 스타일 스와이퍼 UI] --- */
         .portfolio-container-wrapper {
             position: relative;
             width: 100%;
@@ -86,27 +114,23 @@
             overflow: hidden;
         }
         
-        /* 화살표 버튼 커스텀 (아베크 스타일의 얇고 모던한 라인형 < > 배치) */
         .swiper-button-next, .swiper-button-prev {
             color: #000000 !important;
             width: 50px !important;
             height: 50px !important;
             transition: all 0.3s ease;
         }
-        /* 기본 투박한 화살표 뼈대를 제거하고 세련된 크기로 교정 */
         .swiper-button-next::after, .swiper-button-prev::after {
             font-size: 20px !important;
             font-weight: 300 !important;
         }
-        /* 마우스 오버 반응 효과 */
         .swiper-button-next:hover, .swiper-button-prev:hover {
             opacity: 0.6;
         }
-        /* 화살표가 본문을 찌르지 않게 여백 정돈 */
         .swiper-button-prev { left: -60px !important; }
         .swiper-button-next { right: -60px !important; }
 
-        /* [로딩 최적화형 CLIENT 롤링 시스템] */
+        /* --- ★ [속도 최적화 2] CLIENT 롤링 하드웨어 가속 적용 --- */
         .client_marquee_wrap {
             overflow: hidden;
             width: 100%;
@@ -115,10 +139,15 @@
             padding: 20px 0;
             flex-shrink: 0;
             box-sizing: border-box;
+            
+            /* 마우스 오버 시 연산 부하 완화 처리를 위한 레이어 격리 */
+            contain: layout paint; 
         }
         .client_inner {
             display: flex;
             white-space: nowrap;
+            /* transform 연산 시 그래픽카드(GPU)를 쓰도록 하여 CPU 버벅임 현상을 원천 제거 */
+            will-change: transform;
             animation: client_rolling 30s linear infinite;
         }
         .client_box {
@@ -135,29 +164,141 @@
             color: var(--vc-gray-dark);
         }
         @keyframes client_rolling {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* ==========================================================================
+           [추가] 메인화면 가로 터짐 방지 및 스마트폰/태블릿 최적화 반응형 믹스인
+           ========================================================================== */
+        
+        /* 태블릿 및 일반 노트북 해상도 (화면 폭 1199px 이하일 때 발동) */
+        @media (max-width: 1199px) {
+            #VARCODE_header .logo {
+                margin-right: 50px !important; /* 가로 터짐의 주범이었던 180px 여백을 유연하게 압축 */
+            }
+            #VARCODE_header .nav_menu {
+                gap: 30px !important; /* 메뉴 사이 간격 좁힘 */
+            }
+            /* 스와이퍼 화살표가 화면 밖으로 나가서 공백을 만드는 현상 방지 */
+            .swiper-button-prev { left: -20px !important; }
+            .swiper-button-next { right: -20px !important; }
+        }
+
+        /* 스마트폰 구간 (화면 폭 768px 이하일 때 발동) */
+        @media (max-width: 768px) {
+            #VARCODE_header {
+                height: 60px !important;   /* 70px에서 60px로 교정 */
+                padding: 0 15px !important;  /* 20px에서 15px로 교정 */
+            }
+            #VARCODE_header .logo {
+                margin-right: 25px !important;
+            }
+            #VARCODE_header .nav_menu {
+                gap: 15px !important;
+            }
+            #VARCODE_header .nav_menu a {
+                font-size: 13px !important; /* 메뉴 글자 크기 축소 */
+            }
+            #VARCODE_header .sns_links img {
+                width: 18px !important;  /* SNS 아이콘 축소 */
+                height: 18px !important;
+            }
+
+            .main_content_inner {
+                padding: 0 20px 80px 20px !important; /* 모바일 전용 내부 콘텐츠 여백 */
+            }
+
+            /* 메인 비주얼 배너 폰 화면 맞춤 축소 */
+            .visual_full_width {
+                height: 75vh !important; 
+                margin-bottom: 70px !important;
+            }
+            .visual_full_width h2 {
+                font-size: 26px !important; /* "시각적으로 기획..." 메인 문구 축소 */
+                line-height: 1.4 !important;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+            
+            /* 모바일에서는 스와이퍼 외부 화살표 숨기고 터치 슬라이드 위주로 동작 유도 */
+            .swiper-button-next, .swiper-button-prev {
+                display: none !important;
+            }
+            
+            /* 하단 문의사항 레이아웃을 3열에서 1열 세로 정렬로 변경 */
+            .main_content_inner section style, 
+            .main_content_inner div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+        }
+
+        /* 초소형 미니 폰 구간 (화면 폭 420px 이하일 때 발동) */
+        @media (max-width: 420px) {
+            #VARCODE_header {
+                padding: 0 10px !important;
+            }
+            #VARCODE_header .logo a {
+                font-size: 14px !important;
+            }
+            #VARCODE_header .nav_menu {
+                gap: 10px !important;
+            }
+            #VARCODE_header .nav_menu a {
+                font-size: 11px !important;
+            }
+            #VARCODE_header .sns_links {
+                display: flex;
+                gap: 6px;
+            }
+            .visual_full_width h2 {
+                font-size: 20px !important;
+            }
         }
     </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script>
+        // HTML 문서 로드가 완전히 끝난 직후 0.001초 만에 슬라이더를 켜주는 최적화 스크립트
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper-portfolio', {
+                slidesPerView: 3,
+                spaceBetween: 25,
+                loop: true,
+                autoplay: {
+                    delay: 3000, 
+                    disableOnInteraction: false,
+                },
+                grabCursor: true, 
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    320: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 
 <header id="VARCODE_header">
     <div class="logo"><a href="./index.html">VARCODE.</a></div>
     <nav class="nav_menu">
-        <a href="./varcode/about.html">ABOUT</a>
-        <a href="./varcode/portfolio.html">PORTFOLIO</a>
-        <a href="./varcode/contact.html">CONTACT</a>
+        <a href="./VARCODE/about.html">ABOUT</a>
+        <a href="./VARCODE/portfolio.html">PORTFOLIO</a>
+        <a href="./VARCODE/contact.html">CONTACT</a>
     </nav>
-    <!-- 헤더 내부의 가장 오른쪽 영역입니다 -->
     <div class="sns_links">
-        <!-- 1. 네이버 블로그 아이콘 -->
         <a href="#" target="_blank" aria-label="Naver Blog">
-            <svg viewBox="0 0 24 24" style="width:22px; height:22px; fill:#2A362C;"><path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm2.5 5v10h3.125V12h.062l3.313 5H17.5V7h-3.125v5h-.063L11 7H6.5z"/></svg>
+            <img src="./img/그룹 17.svg" alt="Naver Blog" style="width:22px; height:22px; vertical-align:middle;">
         </a>
-        <!-- 2. 인스타그램 아이콘 (복구 완료!) -->
         <a href="#" target="_blank" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" style="width:22px; height:22px; fill:#2A362C;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            <img src="./img/그룹 14.svg" alt="Instagram" style="width:22px; height:22px; vertical-align:middle;">
         </a>
     </div>
 </header>
@@ -166,7 +307,7 @@
     <div class="VARCODE_layout" style="padding-top: 0;">
         <main class="VARCODE_contents main_full_contents">
             
-            <section id="main_visual" class="visual_full_width" style="background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1920&q=85') no-repeat center/cover; position: relative;">
+            <section id="main_visual" class="visual_full_width" style="background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('./img/마스크 그룹 1.png') no-repeat center/cover; position: relative;">
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #FFFFFF; width: 100%;">
                     <h2 style="font-size: 42px; font-weight: bold; line-height: 1.5; letter-spacing: -0.5px;">시각적으로 기획 · 제작 · 설치하는<br>의료공간의 첫 인상</h2>
                 </div>
@@ -174,10 +315,7 @@
 
             <div class="main_content_inner">
 
-                <!-- 섹션 2: INDOOR / OUTDOOR (캡처본 세로 적층형 구조로 수정) -->
                 <section class="about_section" style="display: flex; flex-direction: column; gap: 80px; margin-bottom: 140px;">
-                    
-                    <!-- 상단: INDOOR 세트 -->
                     <div style="border-bottom: 1px solid var(--vc-bg-light); padding-bottom: 40px;">
                         <h3 class="vc-style-3" style="color: var(--vc-dark); margin-bottom: 25px; font-size: 22px; letter-spacing: 1px;">INDOOR</h3>
                         <p class="vc-style-1" style="color: var(--vc-gray-dark); font-size: 16px; line-height: 1.8;">
@@ -186,8 +324,6 @@
                             공간의 가치를 올려주는 프리미엄 자재 선정
                         </p>
                     </div>
-                    
-                    <!-- 하단: OUTDOOR 세트 -->
                     <div style="padding-bottom: 20px;">
                         <h3 class="vc-style-3" style="color: var(--vc-dark); margin-bottom: 25px; font-size: 22px; letter-spacing: 1px;">OUTDOOR</h3>
                         <p class="vc-style-1" style="color: var(--vc-gray-dark); font-size: 16px; line-height: 1.8;">
@@ -196,7 +332,6 @@
                             완벽한 안전 진단을 바탕으로 한 외관 디자인
                         </p>
                     </div>
-
                 </section>
 
                 <section class="about_section" style="margin-top: 120px; margin-bottom: 140px;">
@@ -288,29 +423,6 @@
         </div>
     </div>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    const swiper = new Swiper('.swiper-portfolio', {
-        slidesPerView: 3,
-        spaceBetween: 25,
-        loop: true,
-        autoplay: {
-            delay: 3000, 
-            disableOnInteraction: false,
-        },
-        grabCursor: true, 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            320: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-        }
-    });
-</script>
 
 </body>
 </html>
