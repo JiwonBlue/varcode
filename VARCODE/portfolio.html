@@ -32,9 +32,9 @@
     <div class="VARCODE_layout">
         <aside class="VARCODE_sidebar">
             <div style="margin-top: 100px; display:flex; flex-direction:column; gap:15px; font-weight:bold; font-size:14px;">
-                <a href="#" style="color: #1B543A;">ALL</a>
-                <a href="#" style="color: #838383;">INDOOR</a>
-                <a href="#" style="color: #838383;">OUTDOOR</a>
+                <a href="#" class="filter_btn active" data-filter="all" style="color: #1B543A;">ALL</a>
+                <a href="#" class="filter_btn" data-filter="indoor" style="color: #838383;">INDOOR</a>
+                <a href="#" class="filter_btn" data-filter="outdoor" style="color: #838383;">OUTDOOR</a>
             </div>
             <div class="info_footer"><p>vacode00@naver.com</p><p>F. 010-4738-8278</p></div>
         </aside>
@@ -43,7 +43,7 @@
             <h3 class="section_title">PORTFOLIO IMAGE</h3>
             <div class="portfolio_grid">
                 
-                <div class="portfolio_item" onclick="location.href='./portfolio_detail.html'">
+                <div class="portfolio_item" data-category="outdoor" onclick="location.href='./portfolio_detail.html'">
                     <img src="../img/portfolio_01.png" class="portfolio_thumb" alt="365산본플란트치과의원">
                     <div class="portfolio_info">
                         <div class="pf_title">365산본플란트치과의원</div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 
-                <div class="portfolio_item" onclick="location.href='./portfolio_detail.html'">
+                <div class="portfolio_item" data-category="indoor" onclick="location.href='./portfolio_detail.html'">
                     <img src="../img/portfolio_02.png" class="portfolio_thumb" alt="다움치과의원">
                     <div class="portfolio_info">
                         <div class="pf_title">다움치과의원</div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="portfolio_item" onclick="location.href='./portfolio_detail.html'">
+                <div class="portfolio_item" data-category="outdoor" onclick="location.href='./portfolio_detail.html'">
                     <img src="../img/portfolio_03.png" class="portfolio_thumb" alt="목동공감한의원">
                     <div class="portfolio_info">
                         <div class="pf_title">목동공감한의원</div>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
 
-                <div class="portfolio_item" onclick="location.href='./portfolio_detail.html'">
+                <div class="portfolio_item" data-category="indoor" onclick="location.href='./portfolio_detail.html'">
                     <img src="../img/portfolio_04.png" class="portfolio_thumb" alt="의정부웰365의원">
                     <div class="portfolio_info">
                         <div class="pf_title">의정부웰365의원</div>
@@ -93,6 +93,53 @@
         </div>
     </div>
 </footer>
+
+<style>
+    /* 카테고리 전환 시 부드러운 페이드인 애니메이션 */
+    @keyframes portfolioFadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .portfolio_item {
+        animation: portfolioFadeIn 0.4s ease forwards;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter_btn');
+        const portfolioItems = document.querySelectorAll('.portfolio_item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // 활성화된 버튼 색상 및 클래스 토글
+                filterButtons.forEach(btn => {
+                    btn.style.color = '#838383';
+                    btn.classList.remove('active');
+                });
+                this.style.color = '#1B543A';
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                        // 브라우저 리플로우 강제 유발로 애니메이션 재실행
+                        item.style.animation = 'none';
+                        item.offsetHeight; // reflow
+                        item.style.animation = null;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
