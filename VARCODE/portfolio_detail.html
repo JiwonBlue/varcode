@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VACODE. - PORTFOLIO DETAIL</title>
+    <link rel="stylesheet" href="../css/VARCODE_style.css">
+    
+    <!-- 웹폰트 비동기 로드 처리 (블로킹 방지) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunnpoet/SUITE/fonts/static/woff2/SUITE.css" media="print" onload="this.media='all'">
+</head>
+<body>
+
+<header id="VARCODE_header">
+    <div class="logo"><a href="../index.html"><img src="../img/logo_dark.svg" alt="VACODE." style="height:22px; display:block;"></a></div>
+    <nav class="nav_menu">
+        <a href="./about.html">ABOUT</a>
+        <a href="./portfolio.html" class="active">PORTFOLIO</a>
+        <a href="./contact.html">CONTACT</a>
+    </nav>
+    <div class="sns_links">
+        <a href="#" target="_blank" aria-label="Naver Blog">
+            <img src="../img/그룹 17.svg" alt="Naver Blog" style="width:22px; height:22px; vertical-align:middle;">
+        </a>
+        <a href="#" target="_blank" aria-label="Instagram">
+            <img src="../img/그룹 14.svg" alt="Instagram" style="width:22px; height:22px; vertical-align:middle;">
+        </a>
+    </div>
+</header>
+
+<div id="VARCODE_wrap">
+    <div class="VARCODE_layout">
+        <aside class="VARCODE_sidebar">
+            <div>
+                <div style="margin-top: 100px; display:flex; flex-direction:column; gap:15px; font-weight:bold; font-size:14px;">
+                    <a href="./portfolio.html" style="color: #838383;">ALL</a>
+                    <a href="./portfolio.html" style="color: #838383;">INDOOR</a>
+                    <a href="./portfolio.html" style="color: #838383;">OUTDOOR</a>
+                </div>
+                <div class="project_detail_info" style="margin-top: 60px; display:flex; flex-direction:column; gap:8px;">
+                    <h2 style="font-size: 20px; font-weight: bold; color: var(--vc-black); margin-bottom: 12px; letter-spacing: -0.5px;">다움치과의원</h2>
+                    <p style="font-size: 14px; color: var(--vc-gray-dark); margin: 0; line-height: 1.5;">트러스타입 채널간판</p>
+                    <p style="font-size: 14px; color: var(--vc-gray-dark); margin: 0; line-height: 1.5;">유리부 UV원웨이 시트</p>
+                    <p style="font-size: 14px; color: var(--vc-gray-dark); margin: 0; line-height: 1.5;">경관 라인조명</p>
+                </div>
+            </div>
+            <div class="info_footer"><p>vacode00@naver.com</p><p>F. 010-4738-8278</p></div>
+        </aside>
+
+        <main class="VARCODE_contents sub_contents" style="padding-top: 50px;">
+            <div class="masonry_grid" style="display: flex; gap: 25px; width: 100%;">
+                
+                <!-- Column 1 -->
+                <div class="masonry_column" style="flex: 1; display: flex; flex-direction: column; gap: 25px;">
+                    <div style="background-color: #E0E0E0; width: 100%; aspect-ratio: 1/1; border-radius: 4px;"></div>
+                    <div style="background-color: #E0E0E0; width: 100%; aspect-ratio: 4/3; border-radius: 4px;"></div>
+                    <div style="background-color: #E0E0E0; width: 100%; aspect-ratio: 1/1; border-radius: 4px;"></div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="masonry_column" style="flex: 1; display: flex; flex-direction: column; gap: 25px;">
+                    <div style="background-color: #E0E0E0; width: 100%; aspect-ratio: 2/3; border-radius: 4px;"></div>
+                    <div style="background-color: #E0E0E0; width: 100%; aspect-ratio: 4/3; border-radius: 4px;"></div>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="masonry_column" style="flex: 1; display: flex; flex-direction: column; gap: 25px;">
+                    <div style="background-color: #E0E0E0; width: 100%; aspect-ratio: 4/3; border-radius: 4px;"></div>
+                    <div style="background-color: #E0E0E0; width: 100%; aspect-ratio: 3/4; border-radius: 4px;"></div>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+</div>
+
+<footer id="VARCODE_footer">
+    <div class="footer_inner">
+        <div class="footer_info_list vc-style-1">
+            <span class="info_item">사업자등록번호 : 384-86-0****</span>
+            <span class="info_item">바코드 유한회사 대표이사 : 성현호/김대현/김원중</span>
+            <span class="info_item">TEL : 010-4738-8278</span>
+            <span class="info_item">개인정보 보호책임자 : 홍길동</span>
+        </div>
+        <div class="footer_copyright">
+            Copyright &copy; 2026 VACODE | Powered by VACODE
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
