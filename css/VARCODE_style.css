@@ -155,7 +155,7 @@ img {
     flex-direction: column;
     justify-content: space-between;
     z-index: 900;
-    padding: 60px 50px 50px 50px; /* 패딩을 추가하여 텍스트 정렬 인덴트 50px 유지 */
+    padding: 60px 50px 160px 50px; /* 밑에서부터 160px 띄우도록 padding-bottom을 160px로 조정 */
     border-right: none; /* 우측 경계선 제거 */
 }
 .VARCODE_sidebar .slogan_title {
