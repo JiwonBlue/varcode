@@ -96,16 +96,16 @@
 
         /* Work Process 가이드 수치 맞춤형 스타일 */
         .process_list {
-            border-top: 1px solid #e0e0e0 !important;
-            margin-top: 0 !important; /* 상단 여백 제거 (section_title의 margin으로 대체) */
+            border-top: 1px solid var(--vc-gray-light) !important; /* 시안에 맞는 중간 굵기/톤의 회색선 */
+            margin-top: 20px !important; /* 타이틀과 선 사이 여백 확보 */
         }
 
         .process_row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px !important;
-            border-bottom: 1px solid #e0e0e0 !important;
-            padding: 60px 0 !important; /* 위아래 패딩 넉넉하게 */
+            border-bottom: 1px solid var(--vc-gray-light) !important;
+            padding: 50px 0 !important;
         }
 
         .process_item {
@@ -113,19 +113,21 @@
         }
 
         .process_title {
-            font-size: 16px !important;
+            font-size: 18px !important;
             font-weight: 800 !important;
             color: var(--vc-black) !important;
-            margin-bottom: 15px !important;
+            margin-bottom: 12px !important; /* 본문과의 간격 좁힘 */
+            display: flex;
+            align-items: baseline;
         }
 
         .process_num {
             display: inline-block;
-            color: var(--vc-black) !important; /* 초록색 초기화 */
-            margin-right: 8px !important;
+            color: var(--vc-gray-dark) !important; /* 숫자는 회색으로 */
+            margin-right: 12px !important;
             margin-bottom: 0 !important;
-            font-size: 16px !important;
-            font-weight: 800 !important;
+            font-size: 15px !important; /* 숫자를 살짝 작게 */
+            font-weight: 600 !important;
         }
 
         .process_desc {
