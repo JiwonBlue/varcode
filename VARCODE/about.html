@@ -28,16 +28,17 @@
             max-width: none !important;
             margin-right: -50px !important; /* 부모 sub_contents의 padding-right(50px)을 상쇄하여 우측 끝까지 꽉 채움 */
             background-color: var(--vc-bg-light) !important;
-            padding: 0 80px !important; /* 좌우 패딩을 고정 80px로 변경하여 넓은 해상도에서 균형 유지 */
+            padding: 0 50px 0 80px !important; /* 좌측 패딩 80px, 우측 50px */
             display: flex !important;
-            justify-content: space-between !important;
+            justify-content: flex-start !important; /* 좌측부터 순서대로 정렬 */
+            gap: 80px !important; /* 텍스트와 이미지 간 고정 간격 */
             align-items: center !important;
             box-sizing: border-box !important;
             margin-bottom: 60px !important;
         }
 
         .visual_txt {
-            width: 520px !important; /* 가로폭 520px 지정 */
+            width: 480px !important; /* 가로폭 약간 축소 */
             flex-shrink: 0;
             font-family: var(--vc-font-suite) !important;
         }
@@ -58,11 +59,11 @@
 
         .visual_img {
             flex-shrink: 0;
-            width: 700px !important; /* 시안 스펙 이미지 가로폭 700px 설정 */
-            height: 560px !important; /* 시안 스펙 이미지 세로폭 560px 설정 */
+            width: 850px !important; /* 이미지 가로폭 크게 확대 */
+            height: 540px !important; 
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end; /* 이미지를 컨테이너 내 우측으로 정렬 */
         }
         .visual_img img {
             width: 100% !important;
@@ -199,11 +200,11 @@
             <section class="about_section">
                 <div class="about_visual_box">
                     <div class="visual_txt">
-                        <h2>병의원 외부 · 내부 사인 전체를<br>기획부터 제작, 시공까지</h2>
+                        <h2>병의원 외부·내부 사인 전체를<br>기획부터 제작, 시공까지</h2>
                         <p>건물 규정 & 허가 기준에 맞춘 실측 기반 설계가 강점이며,<br>디자인·제작·시공을 모두 직접 컨트롤하여<br>일정 차질을 최소화합니다.</p>
                     </div>
                     <div class="visual_img">
-                        <img src="../img/제목-없음-2.png" alt="VACODE" style="width:100%; height:auto; display:block; border-radius:4px;">
+                        <img src="../img/visual_sign.png" alt="VACODE" style="width:100%; height:100%; object-fit:contain; transform: scale(1.15);">
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 100px; margin-bottom: 100px;">
