@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VACODE. - ABOUT</title>
-    <link rel="stylesheet" href="../css/VARCODE_style.css?v=2.0">
+    <link rel="stylesheet" href="../css/VARCODE_style.css?v=2.1">
     
     <!-- 웹폰트 SUITE 로드 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunnpoet/SUITE/fonts/static/woff2/SUITE.css">
@@ -23,8 +23,8 @@
 
         .about_visual_box {
             width: auto !important; /* 가로 가변 처리 */
-            height: 800px !important; /* 시안 규격인 800px로 복원 */
-            min-height: 800px !important;
+            height: 730px !important; /* 헤더 70px을 제외한 회색 공간 높이 730px 설정 */
+            min-height: 730px !important;
             max-width: none !important;
             margin-right: -50px !important; /* 부모 sub_contents의 padding-right(50px)을 상쇄하여 우측 끝까지 꽉 채움 */
             background-color: var(--vc-bg-light) !important;
@@ -37,7 +37,7 @@
         }
 
         .visual_txt {
-            width: 600px !important; /* 가로폭 600px 지정 */
+            width: 520px !important; /* 가로폭 520px 지정 */
             flex-shrink: 0;
             font-family: var(--vc-font-suite) !important;
         }
@@ -58,14 +58,15 @@
 
         .visual_img {
             flex-shrink: 0;
-            width: 680px !important; /* 시안 대비 이미지 가로폭 680px로 복원 */
+            width: 700px !important; /* 시안 스펙 이미지 가로폭 700px 설정 */
+            height: 560px !important; /* 시안 스펙 이미지 세로폭 560px 설정 */
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .visual_img img {
             width: 100% !important;
-            height: auto !important;
+            height: 100% !important;
             object-fit: contain !important;
         }
 
