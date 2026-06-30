@@ -95,33 +95,39 @@
         }
 
         /* Work Process 가이드 수치 맞춤형 스타일 */
-        .process_grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px 40px !important;
+        .process_list {
             border-top: 1px solid var(--vc-black) !important;
-            padding-top: 40px !important;
             margin-top: 40px !important;
         }
 
+        .process_row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px !important;
+            border-bottom: 1px solid var(--vc-black) !important;
+            padding: 40px 0 !important;
+        }
+
         .process_item {
-            border-bottom: 1px solid var(--vc-bg-light) !important;
-            padding-bottom: 40px !important;
+            /* flex layout for title */
+        }
+
+        .process_title {
+            font-size: 18px !important;
+            font-weight: 800 !important;
+            color: var(--vc-black) !important;
+            margin-bottom: 20px !important;
         }
 
         .process_num {
-            font-size: 16px !important;
-            margin-bottom: 20px !important;
-        }
-
-        .process_name {
-            font-size: 20px !important;
-            margin-bottom: 20px !important;
+            display: inline-block;
+            margin-right: 8px;
         }
 
         .process_desc {
             font-size: 14px !important;
             line-height: 1.7 !important;
+            color: var(--vc-gray-dark) !important;
         }
 
         /* Partnership 아이콘 크기 및 레이아웃 조정 */
@@ -278,42 +284,34 @@
 
                 <section class="about_section">
                     <h3 class="section_title">WORK PROCESS</h3>
-                    <div class="process_grid">
-                        <div class="process_item">
-                            <div class="process_num">01</div>
-                            <div class="process_name">기획 미팅</div>
-                            <div class="process_desc">건물 환경, 브랜드 성향 등 특성 파악<br>건물 허가 및 규제 범위 확인<br>파트너사(컨설팅/인테리어)와 방향성
-                                조율</div>
-                        </div>
-                        <div class="process_item">
-                            <div class="process_num">02</div>
-                            <div class="process_name">현장 실측</div>
-                            <div class="process_desc">정밀 실측 및 사진, 도면 확보<br>안전, 전기, 설치 가능 여부 검토<br>건물주 / 관리실 협조사항 체크
+                    <div class="process_list">
+                        <div class="process_row">
+                            <div class="process_item">
+                                <div class="process_title"><span class="process_num">01</span> 기획 미팅</div>
+                                <div class="process_desc">건물 환경, 브랜드 성향 등 특성 파악<br>건물 허가 및 규제 범위 확인<br>파트너사(컨설팅/인테리어)와 방향성 조율</div>
+                            </div>
+                            <div class="process_item">
+                                <div class="process_title"><span class="process_num">02</span> 현장 실측</div>
+                                <div class="process_desc">정밀 실측 및 사진, 도면 확보<br>안전, 전기, 설치 가능 여부 검토<br>건물주 / 관리실 협조사항 체크</div>
+                            </div>
+                            <div class="process_item">
+                                <div class="process_title"><span class="process_num">03</span> 디자인 컨셉 제안</div>
+                                <div class="process_desc">외부 사인 1~2안 제안<br>내부 사인(로비, 복도, 진료실) 컨셉 제안<br>가독성, 브랜딩, 조명, 안전 기준 종합 반영<br>파트너사 의견 반영하여 디렉팅</div>
                             </div>
                         </div>
-                        <div class="process_item">
-                            <div class="process_num">03</div>
-                            <div class="process_name">디자인 컨셉 제안</div>
-                            <div class="process_desc">외부 사인 1~2안 제안<br>내부 사인(로비, 복도, 진료실) 컨셉 제안<br>가독성, 브랜딩, 조명, 안전 기준
-                                종합 반영<br>파트너사 의견 반영하여 디렉팅</div>
-                        </div>
-                        <div class="process_item">
-                            <div class="process_num">04</div>
-                            <div class="process_name">제작 진행</div>
-                            <div class="process_desc">채널, 포맥스, 갈바, 라이트판넬 제작<br>시트, 출력, 용접, 전기 공정 관리<br>제작 검수 후 시공팀
-                                전달<br>파트너사 일정에 맞춘 제작 스케줄 조율</div>
-                        </div>
-                        <div class="process_item">
-                            <div class="process_num">05</div>
-                            <div class="process_name">설치 시공</div>
-                            <div class="process_desc">숙련된 전문 시공팀 배정<br>건물 내 안전 준수 / 야간, 주말 작업<br>배선, 전기, 철거, 교체 포함<br>시공
-                                완료 후 간판 점등, 기능 테스트</div>
-                        </div>
-                        <div class="process_item">
-                            <div class="process_num">06</div>
-                            <div class="process_name">준공 보고</div>
-                            <div class="process_desc">전체 시공 사진 및 영상 보고<br>간판 위치, 스펙, 자재 안내<br>A/S 지원 (설치일 기준 일정
-                                기간)<br>향후 브랜딩 확장 컨설팅 가능</div>
+                        <div class="process_row">
+                            <div class="process_item">
+                                <div class="process_title"><span class="process_num">04</span> 제작 진행</div>
+                                <div class="process_desc">채널, 포맥스, 갈바, 라이트판넬 제작<br>시트, 출력, 용접, 전기 공정 관리<br>제작 검수 후 시공팀 전달<br>파트너사 일정에 맞춘 제작 스케줄 조율</div>
+                            </div>
+                            <div class="process_item">
+                                <div class="process_title"><span class="process_num">05</span> 설치 시공</div>
+                                <div class="process_desc">숙련된 전문 시공팀 배정<br>건물 내 안전 준수 / 야간, 주말 작업<br>배선, 전기, 철거, 교체 포함<br>시공 완료 후 간판 점등, 기능 테스트</div>
+                            </div>
+                            <div class="process_item">
+                                <div class="process_title"><span class="process_num">06</span> 준공 보고</div>
+                                <div class="process_desc">전체 시공 사진 및 영상 보고<br>간판 위치, 스펙, 자재 안내<br>A/S 지원 (설치일 기준 일정 기간)<br>향후 브랜딩 확장 컨설팅 가능</div>
+                            </div>
                         </div>
                     </div>
                 </section>
