@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VACODE. - MAIN</title>
-    <link rel="stylesheet" href="./css/VARCODE_style.css?v=2.1">
+    <link rel="stylesheet" href="./css/VACODE_style.css?v=2.1">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
     
@@ -13,7 +13,7 @@
 
     <style>
         /* --- [헤더 레이아웃 최종 고정] --- */
-        #VARCODE_header {
+        #VACODE_header {
             position: absolute !important;
             top: 0;
             left: 0;
@@ -30,17 +30,17 @@
         }
 
         /* 로고와 메뉴 사이의 간격을 늘려 시안 특유의 세련된 좌측 정렬 여백 구현 */
-        #VARCODE_header .logo {
+        #VACODE_header .logo {
             margin-right: 254px !important; 
             flex-shrink: 0;
         }
         
         /* ★ [교정] 로고 글자색을 흰색으로 변경 */
-        #VARCODE_header .logo a {
+        #VACODE_header .logo a {
             color: #FFFFFF !important; 
         }
 
-        #VARCODE_header .nav_menu {
+        #VACODE_header .nav_menu {
             display: flex !important;
             gap: 50px !important;
             position: static !important; 
@@ -49,7 +49,7 @@
         }
         
         /* 기본 메뉴 글자색 (기존 코드 유지) */
-        #VARCODE_header .nav_menu a {
+        #VACODE_header .nav_menu a {
             font-size: 15px;
             font-weight: bold;
             color: #FFFFFF !important;
@@ -59,16 +59,16 @@
         }
 
         /* ★ [새로 추가] 마우스를 갖다 댔을 때(hover) 반응하는 스타일 */
-        #VARCODE_header .nav_menu a:hover {
+        #VACODE_header .nav_menu a:hover {
             /* 은은하게 반투명해지는 흰색으로 변경 (취향에 따라 #CCCCCC 같은 연그레이로 바꾸셔도 됩니다) */
             color: rgba(255, 255, 255, 0.6) !important; 
         }
         
         /* ★ [새로 추가] 로고에도 마우스를 올렸을 때 흐려지는 호버 효과를 똑같이 주고 싶다면 함께 넣어주세요 */
-        #VARCODE_header .logo a {
+        #VACODE_header .logo a {
             transition: opacity 0.3s ease !important;
         }
-        #VARCODE_header .logo a:hover {
+        #VACODE_header .logo a:hover {
             opacity: 0.6 !important;
         }
 
@@ -109,7 +109,7 @@
         }
 
         /* --- [아베크 스타일 스와이퍼 UI] --- */
-        #VARCODE_wrap {
+        #VACODE_wrap {
             overflow-x: hidden;
         }
         .portfolio-container-wrapper {
@@ -213,10 +213,10 @@
         
         /* 태블릿 및 일반 노트북 해상도 (화면 폭 1199px 이하일 때 발동) */
         @media (max-width: 1199px) {
-            #VARCODE_header .logo {
+            #VACODE_header .logo {
                 margin-right: 50px !important; /* 가로 터짐의 주범이었던 180px 여백을 유연하게 압축 */
             }
-            #VARCODE_header .nav_menu {
+            #VACODE_header .nav_menu {
                 gap: 30px !important; /* 메뉴 사이 간격 좁힘 */
             }
             /* 스와이퍼 화살표가 화면 밖으로 나가서 공백을 만드는 현상 방지 */
@@ -226,25 +226,25 @@
 
         /* 스마트폰 구간 (화면 폭 768px 이하일 때 발동) */
         @media (max-width: 768px) {
-            #VARCODE_header {
+            #VACODE_header {
                 height: 60px !important;
                 padding: 0 15px !important;
                 background-color: transparent !important; /* 모바일 메인 헤더 투명 유지 */
                 border-bottom: none !important;
             }
-            #VARCODE_header .logo {
+            #VACODE_header .logo {
                 margin-right: 25px !important;
             }
-            #VARCODE_header .nav_menu {
+            #VACODE_header .nav_menu {
                 flex: none !important; /* 플렉스 확장 제거로 모바일 정렬 통일 */
                 gap: 15px !important;
                 margin-right: 10px !important;
             }
-            #VARCODE_header .nav_menu a {
+            #VACODE_header .nav_menu a {
                 color: #FFFFFF !important; /* 모바일 메인 텍스트 흰색 유지 */
                 font-size: 13px !important;
             }
-            #VARCODE_header .sns_links img {
+            #VACODE_header .sns_links img {
                 width: 18px !important;
                 height: 18px !important;
             }
@@ -282,19 +282,19 @@
 
         /* 초소형 미니 폰 구간 (화면 폭 420px 이하일 때 발동) */
         @media (max-width: 420px) {
-            #VARCODE_header {
+            #VACODE_header {
                 padding: 0 10px !important;
             }
-            #VARCODE_header .logo a {
+            #VACODE_header .logo a {
                 font-size: 14px !important;
             }
-            #VARCODE_header .nav_menu {
+            #VACODE_header .nav_menu {
                 gap: 10px !important;
             }
-            #VARCODE_header .nav_menu a {
+            #VACODE_header .nav_menu a {
                 font-size: 11px !important;
             }
-            #VARCODE_header .sns_links {
+            #VACODE_header .sns_links {
                 display: flex;
                 gap: 6px;
             }
@@ -331,12 +331,12 @@
 </head>
 <body>
 
-<header id="VARCODE_header">
+<header id="VACODE_header">
     <div class="logo"><a href="./index.html"><img src="./img/logo_white.svg" alt="VACODE." style="height:22px; display:block;"></a></div>
     <nav class="nav_menu">
-        <a href="./VARCODE/about.html">ABOUT</a>
-        <a href="./VARCODE/portfolio.html">PORTFOLIO</a>
-        <a href="./VARCODE/contact.html">CONTACT</a>
+        <a href="./VACODE/about.html">ABOUT</a>
+        <a href="./VACODE/portfolio.html">PORTFOLIO</a>
+        <a href="./VACODE/contact.html">CONTACT</a>
     </nav>
     <div class="sns_links">
         <a href="#" target="_blank" aria-label="Naver Blog">
@@ -348,9 +348,9 @@
     </div>
 </header>
 
-<div id="VARCODE_wrap">
-    <div class="VARCODE_layout" style="padding-top: 0;">
-        <main class="VARCODE_contents main_full_contents">
+<div id="VACODE_wrap">
+    <div class="VACODE_layout" style="padding-top: 0;">
+        <main class="VACODE_contents main_full_contents">
             
             <section id="main_visual" class="visual_full_width" style="background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('./img/마스크 그룹 1.png') no-repeat center/cover; position: relative;">
                 <div class="visual_txt_animate" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #FFFFFF; width: 100%;">
@@ -386,28 +386,28 @@
                     <div class="portfolio-container-wrapper">
                         <div class="swiper swiper-portfolio">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide portfolio_item" onclick="location.href='./VARCODE/portfolio_detail.html'">
+                                <div class="swiper-slide portfolio_item" onclick="location.href='./VACODE/portfolio_detail.html'">
                                     <img src="./img/portfolio_01.png" class="portfolio_thumb" alt="365산본플란트치과의원">
                                     <div class="portfolio_info">
                                         <div class="pf_title">365산본플란트치과의원</div>
                                         <div class="pf_link">VIEW MORE &gt;</div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide portfolio_item" onclick="location.href='./VARCODE/portfolio_detail.html'">
+                                <div class="swiper-slide portfolio_item" onclick="location.href='./VACODE/portfolio_detail.html'">
                                     <img src="./img/portfolio_02.png" class="portfolio_thumb" alt="다움치과의원">
                                     <div class="portfolio_info">
                                         <div class="pf_title">다움치과의원</div>
                                         <div class="pf_link">VIEW MORE &gt;</div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide portfolio_item" onclick="location.href='./VARCODE/portfolio_detail.html'">
+                                <div class="swiper-slide portfolio_item" onclick="location.href='./VACODE/portfolio_detail.html'">
                                     <img src="./img/portfolio_03.png" class="portfolio_thumb" alt="목동공감한의원">
                                     <div class="portfolio_info">
                                         <div class="pf_title">목동공감한의원</div>
                                         <div class="pf_link">VIEW MORE &gt;</div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide portfolio_item" onclick="location.href='./VARCODE/portfolio_detail.html'">
+                                <div class="swiper-slide portfolio_item" onclick="location.href='./VACODE/portfolio_detail.html'">
                                     <img src="./img/portfolio_04.png" class="portfolio_thumb" alt="의정부웰365의원">
                                     <div class="portfolio_info">
                                         <div class="pf_title">의정부웰365의원</div>
@@ -446,7 +446,7 @@
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid var(--vc-bg-light); padding-top: 30px;">
                         <div>
                             <h4 class="vc-style-2" style="font-size: 14px; color: var(--vc-gray-dark); margin-bottom: 15px; text-transform: uppercase;">Inquiries</h4>
-                            <p class="vc-style-1" style="font-size: 15px; font-weight: bold;">VARCODE00@naver.com</p>
+                            <p class="vc-style-1" style="font-size: 15px; font-weight: bold;">VACODE00@naver.com</p>
                             <p class="vc-style-1" style="font-size: 15px; font-weight: bold; margin-top: 5px;">010-4738-8278</p>
                         </div>
                         <div>
@@ -466,7 +466,7 @@
     </div>
 </div>
 
-<footer id="VARCODE_footer">
+<footer id="VACODE_footer">
     <div class="footer_inner">
         <div class="footer_info_list vc-style-1">
             <span class="info_item">사업자등록번호 : 384-86-0****</span>

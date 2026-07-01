@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 :root {
     /* 디자인 시스템 컬러 가이드 적용 */
@@ -65,8 +65,8 @@ img {
     text-transform: uppercase;
 }
 
-/* 레이아웃 구조 (오타 수정: VARCODE -> VARCODE) */
-#VARCODE_wrap {
+/* 레이아웃 구조 (오타 수정: VACODE -> VACODE) */
+#VACODE_wrap {
     width: 100%;
     position: relative;
     overflow-x: hidden; /* 가로 터짐 방지 */
@@ -75,7 +75,7 @@ img {
 /* ==========================================
    상단 네비게이션 헤더 (메인/서브 완벽 동기화)
    ========================================== */
-#VARCODE_header {
+#VACODE_header {
     position: fixed !important;
     top: 0;
     left: 0;
@@ -92,11 +92,11 @@ img {
 }
 
 /* 로고 영역 */
-#VARCODE_header .logo {
+#VACODE_header .logo {
     margin-right: 254px !important; /* 로고 이미지의 실제 렌더링 너비(116px)를 계산하여 메뉴 시작점(ABOUT)이 정확히 420px 라인에 오도록 패딩(50px) + 로고(116px) + 마진(254px) = 420px로 정교하게 맞춤 */
     flex-shrink: 0;
 }
-#VARCODE_header .logo a {
+#VACODE_header .logo a {
     font-family: var(--vc-font-suite);
     font-weight: 800;
     font-size: 22px;
@@ -106,46 +106,46 @@ img {
 }
 
 /* 메뉴 링크 정렬 */
-#VARCODE_header .nav_menu {
+#VACODE_header .nav_menu {
     display: flex !important;
     gap: 50px !important;
     position: static !important; 
     transform: none !important;
     flex: 1; 
 }
-#VARCODE_header .nav_menu a {
+#VACODE_header .nav_menu a {
     font-size: 15px;
     font-weight: bold;
     letter-spacing: -0.16px;
     color: var(--vc-black);
     transition: color 0.2s ease;
 }
-#VARCODE_header .nav_menu a:hover,
-#VARCODE_header .nav_menu a.active {
+#VACODE_header .nav_menu a:hover,
+#VACODE_header .nav_menu a.active {
     color: var(--vc-primary);
 }
 
 /* 우측 끝 SNS 아이콘 영역 */
-#VARCODE_header .sns_links {
+#VACODE_header .sns_links {
     display: flex !important;
     gap: 15px !important;
     flex-shrink: 0;
 }
-#VARCODE_header .sns_links a svg {
+#VACODE_header .sns_links a svg {
     width: 22px;
     height: 22px;
     fill: var(--vc-dark);
 }
 
 /* 스플릿 사이드바 프레임 바디 */
-.VARCODE_layout {
+.VACODE_layout {
     display: flex;
     padding-top: 70px; /* ★ 고정(fixed) 헤더의 높이인 70px만큼 상단 여백을 줍니다 (메인은 인라인 style="padding-top:0;"로 상쇄됨) */
     min-height: calc(100vh - 70px);
 }
 
 /* 좌측 고정 슬로건 사이드바 */
-.VARCODE_sidebar {
+.VACODE_sidebar {
     width: 420px; /* 시안 스펙 420px로 확장 */
     position: fixed;
     top: 70px;
@@ -158,21 +158,21 @@ img {
     padding: 60px 50px 160px 50px; /* 밑에서부터 160px 띄우도록 padding-bottom을 160px로 조정 */
     border-right: none; /* 우측 경계선 제거 */
 }
-.VARCODE_sidebar .slogan_title {
+.VACODE_sidebar .slogan_title {
     font-size: 26px;
     font-weight: bold;
     line-height: 1.45;
     letter-spacing: -0.2px;
     color: var(--vc-black);
 }
-.VARCODE_sidebar .info_footer {
+.VACODE_sidebar .info_footer {
     font-size: 14px;
     line-height: 1.7;
     color: var(--vc-gray-dark);
 }
 
 /* 우측 가변 컨텐츠 영역 기본 세팅 */
-.VARCODE_contents {
+.VACODE_contents {
     margin-left: 0;
     flex: 1;
     padding: 0;
@@ -181,14 +181,14 @@ img {
 }
 
 /* 서브 페이지(ABOUT, PORTFOLIO, CONTACT) 전용 스타일 */
-.VARCODE_contents.sub_contents {
+.VACODE_contents.sub_contents {
     margin-left: 420px; /* 420px 라인으로 정렬 매칭 */
     padding: 0 50px 100px 0; /* 패딩 탑 0으로 조정하여 회색 박스가 헤더 바로 밑에 붙도록 처리 */
     max-width: calc(100% - 420px); 
 }
 
 /* 메인화면 전용 Full Width 레이아웃 스타일 */
-.VARCODE_contents.main_full_contents {
+.VACODE_contents.main_full_contents {
     margin-left: 0 !important; 
     padding: 0 !important;      
 }
@@ -364,7 +364,7 @@ img {
 }
 
 /* 하단 사업자 정보 푸터 영역 */
-#VARCODE_footer {
+#VACODE_footer {
     background-color: var(--vc-bg-light); 
     padding: 60px 50px 40px 50px;
     width: 100%;
@@ -407,23 +407,23 @@ img {
 
 /* 1. 태블릿 구간 (화면 너비 1024px 이하) */
 @media (max-width: 1024px) {
-    #VARCODE_header { 
+    #VACODE_header { 
         padding: 0 20px !important; 
         height: 70px !important; 
     }
-    #VARCODE_header .logo {
+    #VACODE_header .logo {
         margin-right: 40px; 
     }
-    #VARCODE_header .nav_menu {
+    #VACODE_header .nav_menu {
         gap: 25px !important; 
     }
 
-    .VARCODE_layout { 
+    .VACODE_layout { 
         flex-direction: column; 
         padding-top: 0px; 
     }
     
-    .VARCODE_sidebar { 
+    .VACODE_sidebar { 
         position: relative; 
         top: 0; 
         left: 0; 
@@ -431,15 +431,15 @@ img {
         padding: 40px 20px; 
         bottom: auto; 
     }
-    .VARCODE_sidebar .slogan_title { 
+    .VACODE_sidebar .slogan_title { 
         margin-top: 0; 
         font-size: 22px; 
     }
-    .VARCODE_sidebar .info_footer { 
+    .VACODE_sidebar .info_footer { 
         display: none; 
     } 
 
-    .VARCODE_contents.sub_contents { 
+    .VACODE_contents.sub_contents { 
         margin-left: 0; 
         max-width: 100%; 
         padding: 40px 20px; 
@@ -466,23 +466,23 @@ img {
 
 /* 1. 태블릿 구간 (화면 너비 1024px 이하) */
 @media (max-width: 1024px) {
-    #VARCODE_header { 
+    #VACODE_header { 
         padding: 0 20px !important; 
         height: 70px !important; 
     }
-    #VARCODE_header .logo {
+    #VACODE_header .logo {
         margin-right: 40px !important; 
     }
-    #VARCODE_header .nav_menu {
+    #VACODE_header .nav_menu {
         gap: 25px !important; 
     }
 
-    .VARCODE_layout { 
+    .VACODE_layout { 
         flex-direction: column; 
         padding-top: 0px; 
     }
     
-    .VARCODE_sidebar { 
+    .VACODE_sidebar { 
         position: relative; 
         top: 0; 
         left: 0; 
@@ -490,15 +490,15 @@ img {
         padding: 40px 20px; 
         bottom: auto; 
     }
-    .VARCODE_sidebar .slogan_title { 
+    .VACODE_sidebar .slogan_title { 
         margin-top: 0; 
         font-size: 22px; 
     }
-    .VARCODE_sidebar .info_footer { 
+    .VACODE_sidebar .info_footer { 
         display: none; 
     } 
 
-    .VARCODE_contents.sub_contents { 
+    .VACODE_contents.sub_contents { 
         margin-left: 0; 
         max-width: 100%; 
         padding: 40px 20px; 
@@ -521,32 +521,32 @@ img {
 
 /* 2. 스마트폰 구간 (화면 너비 768px 이하) */
 @media (max-width: 768px) {
-    #VARCODE_header {
+    #VACODE_header {
         height: 60px !important;
         padding: 0 15px !important;
     }
     
     /* ★ [동기화 마감] 메인페이지에만 있던 모바일 압축 로직을 공통 파일에도 이식합니다 */
-    #VARCODE_header .logo {
+    #VACODE_header .logo {
         margin-right: 25px !important; /* 화면이 작을 때 로고 우측 마진 통일 */
     }
-    #VARCODE_header .logo a {
+    #VACODE_header .logo a {
         font-size: 18px !important; 
     }
-    #VARCODE_header .nav_menu {
+    #VACODE_header .nav_menu {
         flex: none !important; /* 플렉스 확장 제거로 모바일 정렬 통일 */
         gap: 15px !important;
         margin-right: 10px !important;
     }
-    #VARCODE_header .nav_menu a {
+    #VACODE_header .nav_menu a {
         font-size: 13px !important; 
         color: var(--vc-black) !important;
     }
-    #VARCODE_header .sns_links {
+    #VACODE_header .sns_links {
         gap: 8px !important;
     }
-    #VARCODE_header .sns_links a svg,
-    #VARCODE_header .sns_links img {
+    #VACODE_header .sns_links a svg,
+    #VACODE_header .sns_links img {
         width: 18px !important;
         height: 18px !important; 
     }
@@ -560,7 +560,7 @@ img {
         margin-bottom: 80px !important;
     }
 
-    #VARCODE_footer { 
+    #VACODE_footer { 
         padding: 40px 20px; 
     }
     .footer_info_list { 
@@ -574,19 +574,19 @@ img {
 
 /* 3. 초소형 미니 폰 구간 (화면 너비 420px 이하) */
 @media (max-width: 420px) {
-    #VARCODE_header {
+    #VACODE_header {
         padding: 0 10px !important;
     }
-    #VARCODE_header .logo a {
+    #VACODE_header .logo a {
         font-size: 14px !important;
     }
-    #VARCODE_header .nav_menu {
+    #VACODE_header .nav_menu {
         gap: 10px !important;
     }
-    #VARCODE_header .nav_menu a {
+    #VACODE_header .nav_menu a {
         font-size: 11px !important;
     }
-    #VARCODE_header .sns_links {
+    #VACODE_header .sns_links {
         display: flex !important;
         gap: 6px !important;
     }
