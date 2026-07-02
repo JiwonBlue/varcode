@@ -166,9 +166,10 @@ img {
     color: var(--vc-black);
 }
 .VACODE_sidebar .info_footer {
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 300; /* Light */
     line-height: 1.7;
-    color: var(--vc-gray-dark);
+    color: var(--vc-gray-dark); /* #838383 */
 }
 
 /* 사이드바 카테고리 필터 메뉴 문자 스타일 맞춤 (Regular - 16px / Bold - 16px) */
