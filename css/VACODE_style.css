@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 
 :root {
     /* 디자인 시스템 컬러 가이드 적용 */
@@ -155,7 +155,7 @@ img {
     flex-direction: column;
     justify-content: space-between;
     z-index: 900;
-    padding: 60px 50px 160px 50px; /* 밑에서부터 160px 띄우도록 padding-bottom을 160px로 조정 */
+    padding: 154px 50px 160px 50px; /* 헤더 밑으로부터 154px 여백 적용 */
     border-right: none; /* 우측 경계선 제거 */
 }
 .VACODE_sidebar .slogan_title {
@@ -169,6 +169,26 @@ img {
     font-size: 14px;
     line-height: 1.7;
     color: var(--vc-gray-dark);
+}
+
+/* 사이드바 카테고리 필터 메뉴 문자 스타일 맞춤 (Regular - 16px / Bold - 16px) */
+.sidebar_filter_menu {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.sidebar_filter_menu a {
+    font-family: var(--vc-font-suite);
+    font-size: 16px;
+    font-weight: 400;
+    color: #838383 !important;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+.sidebar_filter_menu a.active,
+.sidebar_filter_menu a:hover {
+    color: #000000 !important;
+    font-weight: 800;
 }
 
 /* 우측 가변 컨텐츠 영역 기본 세팅 */
@@ -282,7 +302,7 @@ img {
 .portfolio_item:hover .portfolio_info {
     opacity: 1;
 }
-.pf_title { font-size: 18px; font-weight: bold; }
+.pf_title { font-size: 22px; font-weight: bold; }
 .pf_link { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 5px; opacity: 0.8; }
 
 /* 연락처 양식 */

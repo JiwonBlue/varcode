@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -46,10 +46,10 @@
 <div id="VACODE_wrap">
     <div class="VACODE_layout">
         <aside class="VACODE_sidebar">
-            <div style="margin-top: 100px; display:flex; flex-direction:column; gap:15px; font-weight:bold; font-size:14px;">
-                <a href="#" class="filter_btn active" data-filter="all" style="color: #000000;">ALL</a>
-                <a href="#" class="filter_btn" data-filter="indoor" style="color: #838383;">INDOOR</a>
-                <a href="#" class="filter_btn" data-filter="outdoor" style="color: #838383;">OUTDOOR</a>
+            <div class="sidebar_filter_menu">
+                <a href="#" class="filter_btn active" data-filter="all">ALL</a>
+                <a href="#" class="filter_btn" data-filter="indoor">INDOOR</a>
+                <a href="#" class="filter_btn" data-filter="outdoor">OUTDOOR</a>
             </div>
             <div class="info_footer"><p>vacode00@naver.com</p><p>F. 010-4738-8278</p></div>
         </aside>
@@ -118,10 +118,8 @@
 
                 // 활성화된 버튼 색상 및 클래스 토글
                 filterButtons.forEach(btn => {
-                    btn.style.color = '#838383';
                     btn.classList.remove('active');
                 });
-                this.style.color = '#000000';
                 this.classList.add('active');
 
                 const filterValue = this.getAttribute('data-filter');
